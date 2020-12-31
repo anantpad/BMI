@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from CalculateBMI import *
+from Calculators import *
 
 
 def closeapp():
@@ -52,6 +52,9 @@ def calculate_bmi():
             bmi.set(calculate_bmi1(w, h))
     interpretation.set(interpret_bmi(bmi))
 
+def about():
+    messagebox.showinfo("About", "12/30/2020; v1.0; Created by Sridhar Ramachandran")
+
 window = tk.Tk()
 window.resizable(height="true", width="true")
 window.title("Calculate BMI")
@@ -59,11 +62,12 @@ window.minsize(height=250, width=500)
 
 menubar = tk.Menu(window)
 filemenu = tk.Menu(menubar, tearoff=0)
+filemenu.add_command(label="New", command=reset)
 filemenu.add_command(label="Close", command=closeapp)
 menubar.add_cascade(label="File", menu=filemenu)
 
 helpmenu = tk.Menu(menubar, tearoff=0)
-helpmenu.add_command(label="About...", )
+helpmenu.add_command(label="About...", command=about)
 menubar.add_cascade(label="Help", menu=helpmenu)
 
 # Title Calculate your BMI
